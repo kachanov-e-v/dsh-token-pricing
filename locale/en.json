@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Token Pricing (Peak / Off-Peak)",
+    "description": "Shows the current DeepSeek billing mode, detected local time, and this session's token cost in the user's regional currency. Hidden unless the selected model has a published rate."
+  }
+}

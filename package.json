@@ -1,0 +1,60 @@
+{
+  "name": "@local/dsh-token-pricing",
+  "version": "1.0.2",
+  "private": true,
+  "type": "module",
+  "description": "Shows the current DeepSeek Peak/Off-Peak billing mode, detected local time, and this session's token cost by the documented regional rates.",
+  "license": "MIT",
+  "author": "Evgeniy (https://github.com/kachanov-e-v)",
+  "homepage": "https://github.com/kachanov-e-v/dsh-token-pricing#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kachanov-e-v/dsh-token-pricing.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kachanov-e-v/dsh-token-pricing/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "plugin",
+    "pricing",
+    "tokens"
+  ],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "lib/*.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dependencies": {
+    "zod": "^4.4.3"
+  },
+  "scripts": {
+    "test": "node --test --test-isolation=none test/*.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-locale"
+      ]
+    }
+  }
+}
