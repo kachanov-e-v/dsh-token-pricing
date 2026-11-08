@@ -1,6 +1,6 @@
 {
   "name": "@local/dsh-token-pricing",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "type": "module",
   "description": "Shows the current DeepSeek Peak/Off-Peak billing mode, detected local time, and this session's token cost by the documented regional rates.",

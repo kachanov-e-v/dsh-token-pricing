@@ -149,11 +149,11 @@
    git push origin main
    ```
 
-8. Переустановить плагин по GitHub-ссылке на `main` и убедиться, что ставится новая версия:
+8. Переустановить плагин по короткой GitHub-ссылке и убедиться, что ставится новая версия:
 
    ```text
    plugin_manager remove_bundle target=@local/dsh-token-pricing
-   plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing/archive/refs/heads/main.tar.gz
+   plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing
    ```
 
 9. Создать GitHub Release:

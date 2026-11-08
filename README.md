@@ -3,7 +3,7 @@
 Плагин для **DeepSeek Harness Web GUI**: показывает под композером текущий режим **Peak / Off-Peak**, определённое местное время и стоимость токенов текущей сессии по официальным тарифам DeepSeek. По клику открывается всплывающая панель с расшифровкой.
 
 - Репозиторий: <https://github.com/kachanov-e-v/dsh-token-pricing>
-- Версия: **1.0.3**
+- Версия: **1.0.4**
 - Лицензия: MIT
 
 ## Что показывает
@@ -44,18 +44,18 @@ Popover закрывается по `×`, клику вне панели и `Esc
 
 ## Установка
 
-Плагин ставится в профиль прямо из GitHub — клонировать репозиторий и собирать пакет не нужно:
+Плагин ставится в профиль прямо из GitHub по ссылке на репозиторий — клонировать его и собирать пакет не нужно:
 
 ```text
-plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing/archive/refs/heads/main.tar.gz
+plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing
 ```
 
-`install_bundle` скачивает архив ветки `main`, устанавливает зависимость `zod` и подключает bundle. Ссылка на `main` всегда даёт последнюю версию из ветки.
+`install_bundle` разрешает ссылку через GitHub, скачивает пакет, устанавливает зависимость `zod` и подключает bundle. В профиле зависимость сохраняется как `github:kachanov-e-v/dsh-token-pricing` с привязкой к коммиту.
 
-Для воспроизводимой установки закрепите релизный тег:
+Для воспроизводимой установки закрепите релизный тег архивной ссылкой:
 
 ```text
-plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing/archive/refs/tags/v1.0.3.tar.gz
+plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing/archive/refs/tags/v1.0.4.tar.gz
 ```
 
 Теги имеют вид `vX.Y.Z` и совпадают с GitHub Releases.
@@ -70,12 +70,14 @@ plugin_manager install_bundle target=<абсолютный путь к этом�
 
 ### Обновление
 
-Сначала удалите текущую установку, затем поставьте новую версию по ссылке:
+Сначала удалите текущую установку, затем поставьте новую версию по той же ссылке:
 
 ```text
 plugin_manager remove_bundle target=@local/dsh-token-pricing
-plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing/archive/refs/tags/v1.0.3.tar.gz
+plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing
 ```
+
+Так ставится последний коммит ветки `main`. Для фиксированной версии используйте ссылку на тег `vX.Y.Z`.
 
 После обновления клиентской части обновите страницу Web GUI. Повторная установка той же версии или той же ссылки отклоняется как `already-installed`.
 
