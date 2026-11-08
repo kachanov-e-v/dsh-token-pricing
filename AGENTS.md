@@ -38,7 +38,19 @@ node --check lib/schedule.js
 
 Тестовая команда специально использует `--test-isolation=none`: в Windows-sandbox вложенный `spawn` может завершаться `EPERM`.
 
-Установка в профиль:
+Установка в профиль — по GitHub-ссылке, без локальной копии:
+
+```text
+plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing/archive/refs/heads/main.tar.gz
+```
+
+Для воспроизводимой проверки используется релизный тег:
+
+```text
+plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing/archive/refs/tags/vX.Y.Z.tar.gz
+```
+
+Локальный путь допустим только для разработки:
 
 ```text
 plugin_manager install_bundle target=<абсолютный путь к этому каталогу>
@@ -156,11 +168,13 @@ node --check lib/schedule.js
 1. Обновить `version` в `package.json`, `CHANGELOG.md` и дату.
 2. Обновить документацию, если поведение изменилось.
 3. Выполнить проверки из раздела «Тестирование».
-4. Переустановить плагин: `remove_bundle`, затем `install_bundle` (одинаковая версия повторно не устанавливается).
+4. Для локальной проверки переустановить плагин из каталога: `remove_bundle`, затем `install_bundle` (одинаковая версия повторно не устанавливается).
 5. Проверить host active и occupant слота.
-6. Для клиентского изменения обновить страницу Web GUI.
-7. Закоммитить и запушить в `origin/main`.
+6. Закоммитить и запушить в `origin/main`.
+7. Переустановить плагин по GitHub-ссылке на `main` и проверить, что ставится именно новая версия.
 8. Создать GitHub Release с тегом `vX.Y.Z` и русскими заметками.
+9. Для релизной проверки переустановить пакет по ссылке на тег `vX.Y.Z`.
+10. Для клиентского изменения обновить страницу Web GUI.
 
 Пример:
 

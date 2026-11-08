@@ -127,7 +127,7 @@
    node --check lib/schedule.js
    ```
 
-5. Переустановить bundle:
+5. Для локальной проверки переустановить bundle из каталога:
 
    ```text
    plugin_manager remove_bundle target=@local/dsh-token-pricing
@@ -149,11 +149,25 @@
    git push origin main
    ```
 
-8. Создать GitHub Release:
+8. Переустановить плагин по GitHub-ссылке на `main` и убедиться, что ставится новая версия:
+
+   ```text
+   plugin_manager remove_bundle target=@local/dsh-token-pricing
+   plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing/archive/refs/heads/main.tar.gz
+   ```
+
+9. Создать GitHub Release:
 
    ```powershell
    gh release create vX.Y.Z --title "vX.Y.Z" --notes "Краткие заметки на русском"
    ```
+
+10. Переустановить пакет по ссылке на тег и проверить релизную установку:
+
+    ```text
+    plugin_manager remove_bundle target=@local/dsh-token-pricing
+    plugin_manager install_bundle target=https://github.com/kachanov-e-v/dsh-token-pricing/archive/refs/tags/vX.Y.Z.tar.gz
+    ```
 
 ## Откат
 
@@ -182,7 +196,7 @@
 
 ### `already-installed`
 
-Повторная установка той же версии запрещена. Сначала `remove_bundle`, затем `install_bundle`; версия должна измениться для нового релиза.
+Повторная установка той же версии или той же GitHub-ссылки запрещена. Сначала `remove_bundle`, затем `install_bundle`; версия должна измениться для нового релиза.
 
 ### Строка не видна
 
